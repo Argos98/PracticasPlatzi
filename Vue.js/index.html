@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div id="app">
+    <div id="app" :style="{background : '#' + color}">
       <img
         v-on:mouseover="toggleShowPrices"
         v-on:mouseout="toggleShowPrices"
@@ -12,7 +12,7 @@
       />
 
       <h1 :class="changePercent > 0 ? 'green':'red' ">
-        {{ name }}
+        {{ title }}
         <span v-if="cangePercent >0">👍🏻</span>
         <span v-else-if="cangePercent<0">👎🏻</span>
         <span v-else>🤞🏻</span>
@@ -21,7 +21,7 @@
 
       <ul v-show="showPrices">
         <li
-          :class="{orange: p.value == price}"
+          :class="{orange: p.value == price, red: p.value< price, green: p.value > price}"
           v-for="(p, i) in pricesWithDays"
           :key="p.day"
         >
