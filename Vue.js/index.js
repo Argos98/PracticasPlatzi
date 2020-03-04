@@ -1,9 +1,14 @@
 
 
 
-var app = new Vue({ 
+var app = new Vue({
     el: '#app',
-    data: {
-        message: 'Hola '
+
+    data() {
+        return {
+            name: 'Bitcoin',
+            img:'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
+            cangePercent:100
+        }
     }
 });
