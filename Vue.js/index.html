@@ -1,34 +1,22 @@
 <html>
   <head>
+
     <link rel="stylesheet" href="./styles.css" />
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
   </head>
   <body>
     <div id="app" :style="{background : '#' + color}">
-      <img
-        v-on:mouseover="toggleShowPrices"
-        v-on:mouseout="toggleShowPrices"
-        :src="img"
-        :alt="name"
-      />
+      <coin-detail :coin="btc"></coin-detail>
 
-      <h1 :class="changePercent > 0 ? 'green':'red' ">
-        {{ title }}
-        <span v-if="cangePercent >0">👍🏻</span>
-        <span v-else-if="cangePercent<0">👎🏻</span>
-        <span v-else>🤞🏻</span>
-        <span v-on:click="toggleShowPrices">{{showPrices ? '🙈':'🐵' }}</span>
-      </h1>
-
-      <ul v-show="showPrices">
-        <li
-          :class="{orange: p.value == price, red: p.value< price, green: p.value > price}"
-          v-for="(p, i) in pricesWithDays"
-          :key="p.day"
-        >
-          {{ i }}=> {{p.day}} - {{ p.value }}
-        </li>
-      </ul>
+    
+      <counter></counter>
     </div>
+
+    <div></div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="index.js"></script>
   </body>
